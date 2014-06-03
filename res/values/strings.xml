@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">b3Radio</string>
+    <string name="start_radio">Start radio</string>
+    <string name="action_settings">Settings</string>
+    <string name="default_url">http://stream.hive365.co.uk:8088/live</string>
+    <string name="stop_radio">Stop radio</string>
+    <string name="hive_button">Show Hive365 controls</string>
+    <string name="choon">Choon</string>
+    <string name="poon">Poon</string>
+    <string name="djftw">DJFTW</string>
+
+</resources>

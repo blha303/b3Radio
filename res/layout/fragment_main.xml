@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="comau.blha303.b3radiostuff.MainActivity$PlaceholderFragment" >
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/default_url"
+        android:inputType="textUri"
+        android:text="@string/default_url" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/start"
+        android:layout_alignBottom="@+id/start"
+        android:layout_alignRight="@+id/editText1"
+        android:onClick="stopClick"
+        android:text="@string/stop_radio" />
+
+    <Button
+        android:id="@+id/h365show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/start"
+        android:layout_below="@+id/start"
+        android:onClick="makeVisible"
+        android:text="@string/hive_button" />
+
+    <Button
+        android:id="@+id/choon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/h365show"
+        android:layout_below="@+id/h365show"
+        android:layout_marginTop="14dp"
+        android:onClick="choonClick"
+        android:text="@string/choon"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/poon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/choon"
+        android:layout_alignBottom="@+id/choon"
+        android:layout_toRightOf="@+id/choon"
+        android:onClick="poonClick"
+        android:text="@string/poon"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/djftw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/poon"
+        android:layout_alignBottom="@+id/poon"
+        android:layout_toRightOf="@+id/poon"
+        android:onClick="djftwClick"
+        android:text="@string/djftw"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/editText1"
+        android:onClick="startClick"
+        android:text="@string/start_radio" />
+
+</RelativeLayout>
