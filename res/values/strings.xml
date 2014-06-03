@@ -15,5 +15,15 @@
     <string name="not_ready">The radio is starting, please wait.</string>
     <string name="invalid_url">Couldn\'t start playing that URL</string>
     <string name="not_yet_implemented">This function is not yet implemented.</string>
+    <string-array name="urls">
+        <item>
+            <item>Hive365</item>
+            <item>http://stream.hive365.co.uk:8088/live</item>
+        </item>
+        <item>
+            <item>Curtin FM</item>
+            <item>http://ghost.wavestreamer.com:8036/Live</item>
+        </item>
+    </string-array>
 
 </resources>

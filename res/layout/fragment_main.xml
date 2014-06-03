@@ -8,20 +8,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="comau.blha303.b3radiostuff.MainActivity$PlaceholderFragment" >
 
-    <EditText
-        android:id="@+id/editText1"
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
         android:ems="10"
-        android:hint="@string/default_url"
-        android:inputType="textUri"
-        android:text="@string/default_url" >
-
-        <requestFocus />
-    </EditText>
+        android:entries="@array/urls"
+        android:prompt="@string/default_url" />
 
     <Button
         android:id="@+id/stop"
@@ -29,25 +25,16 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/start"
         android:layout_alignBottom="@+id/start"
-        android:layout_alignRight="@+id/editText1"
+        android:layout_alignRight="@+id/spinner"
         android:onClick="stopClick"
         android:text="@string/stop_radio" />
-
-    <Button
-        android:id="@+id/h365show"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/start"
-        android:layout_below="@+id/start"
-        android:onClick="showH365Controls"
-        android:text="@string/hive_button" />
 
     <Button
         android:id="@+id/choon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/h365show"
-        android:layout_below="@+id/h365show"
+        android:layout_alignLeft="@+id/start"
+        android:layout_below="@+id/start"
         android:layout_marginTop="14dp"
         android:onClick="choonClick"
         android:text="@string/choon"
@@ -68,8 +55,8 @@
         android:id="@+id/djftw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/poon"
-        android:layout_alignBottom="@+id/poon"
+        android:layout_alignBaseline="@+id/choon"
+        android:layout_alignBottom="@+id/choon"
         android:layout_toRightOf="@+id/poon"
         android:onClick="djftwClick"
         android:text="@string/djftw"
@@ -79,8 +66,8 @@
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/spinner"
+        android:layout_below="@+id/spinner"
         android:onClick="startClick"
         android:text="@string/start_radio" />
 
@@ -88,10 +75,20 @@
         android:id="@+id/already_playing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignLeft="@+id/spinner"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="58dp"
         android:text="@string/already_playing"
         android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/urlstorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/already_playing"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:visibility="invisible"
+        android:text="@string/default_url" />
 
 </RelativeLayout>
