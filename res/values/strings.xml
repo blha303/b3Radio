@@ -12,9 +12,13 @@
     <string name="poon">Poon</string>
     <string name="djftw">DJFTW</string>
     <string name="already_playing">You need to stop the radio first.</string>
+    <string name="starting">Stream is still starting. Press Home to abort.</string>
     <string name="not_ready">The radio is starting, please wait.</string>
     <string name="invalid_url">Couldn\'t start playing that URL</string>
     <string name="not_yet_implemented">This function is not yet implemented.</string>
+    <string name="add_url">Add stream URL</string>
+    <string name="add_url_button">Save</string>
+    <string name="show_url_add">Add URL</string>
     <string-array name="urls">
         <item>
             <item>Hive365</item>
@@ -23,6 +27,18 @@
         <item>
             <item>Curtin FM</item>
             <item>http://ghost.wavestreamer.com:8036/Live</item>
+        </item>
+        <item>
+            <item>H365 32k</item>
+            <item>http://5.135.180.166:8088/32</item>
+        </item>
+        <item>
+            <item>H365 64k</item>
+            <item>http://5.135.180.166:8088/64</item>
+        </item>
+        <item>
+            <item>H365 96k</item>
+            <item>http://5.135.180.166:8088/96</item>
         </item>
     </string-array>
 

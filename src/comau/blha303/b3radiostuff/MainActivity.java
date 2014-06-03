@@ -6,6 +6,9 @@ import java.util.Iterator;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.os.Bundle;
@@ -24,6 +27,9 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity implements OnClickListener  {
 
 	private MediaPlayer player;
+	private boolean restart;
+	private boolean starting;
+	private boolean looping;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,12 +82,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 			
 			storage = (TextView) rootView.findViewById(R.id.urlstorage);
 			spinner = (Spinner) rootView.findViewById(R.id.spinner);
+			spinner.setSelection(((MainActivity)getActivity()).getSpinner());
 			spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 				@Override
 				public void onItemSelected(AdapterView<?> parent, View view,
 						int position, long id) {
+					((MainActivity)getActivity()).saveSpinner(position);
 					String a = parent.getItemAtPosition(position).toString();
-					if (a.contains("Hive365")) {
+					if (a.contains("Hive365") || a.contains("H365")) {
 						((MainActivity)getActivity()).showH365Controls(view);
 					} else {
 						((MainActivity)getActivity()).hideH365Controls(view);
@@ -111,8 +119,21 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 		}
 	}
 	
-	public void startClick(View v) {
-//		((Button)v).setEnabled(false);
+	public int getSpinner() {
+		SharedPreferences prefs = getSharedPreferences("comau.blha303.b3radiostuff", Context.MODE_PRIVATE);
+		return prefs.getInt("spinnerpos", 0);
+	}
+	
+	public void saveSpinner(int position) {
+		SharedPreferences prefs = getSharedPreferences("comau.blha303.b3radiostuff", Context.MODE_PRIVATE);
+		Editor edit = prefs.edit();
+		edit.putInt("spinnerpos", position);
+		edit.commit();
+	}
+	
+	public void startClick(final View v) {
+		((Button)findViewById(R.id.start)).setEnabled(false);
+		starting = true;
 		TextView error = (TextView)findViewById(R.id.already_playing);
 		TextView urlstorage = (TextView)findViewById(R.id.urlstorage);
 		try {
@@ -124,6 +145,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 				public void onPrepared(MediaPlayer mp) {
 					error.setVisibility(View.INVISIBLE);
 					player.start();
+					starting = false;
+					((Button)v).setEnabled(true);
 				}
 			});
 			player.prepareAsync();
@@ -131,8 +154,13 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 			error.setText(R.string.invalid_url);
 			error.setVisibility(View.VISIBLE);
 		} catch (IllegalStateException e) {
-			error.setText(R.string.already_playing);
-			error.setVisibility(View.VISIBLE);
+			if (restart) {
+				error.setText(R.string.starting);
+				error.setVisibility(View.VISIBLE);
+			} else {
+				restart = true;
+				stopClick(v);
+			}
 		} catch (IOException e) {
 			error.setText(R.string.invalid_url);
 			error.setVisibility(View.VISIBLE);
@@ -141,12 +169,16 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 	
 	public void stopClick(View v) {
 		TextView error = (TextView)findViewById(R.id.already_playing);
-		error.setVisibility(View.INVISIBLE);
+		if (starting) error.setText(R.string.starting);
+		else error.setVisibility(View.INVISIBLE);
 		if (player.isPlaying()) {
 			player.stop();
 			player.release();
 			player = new MediaPlayer();
 		}
+		if (looping) return;
+		if (restart) startClick(v);
+		else ((Button)findViewById(R.id.start)).setEnabled(true);
 	}
 	
 	public void choonClick(View v) {
@@ -186,6 +218,24 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 		poon.setVisibility(View.INVISIBLE);
 		djftw.setVisibility(View.INVISIBLE);		
 	}
+//	
+//	public void togAddURLControls(View v) {
+//		View title = findViewById(R.id.addurl);
+//		View name = findViewById(R.id.inpname);
+//		View url = findViewById(R.id.inpurl);
+//		View save = findViewById(R.id.url_save);
+//		if (title.getVisibility() == View.INVISIBLE) {
+//			title.setVisibility(View.VISIBLE);
+//			name.setVisibility(View.VISIBLE);
+//			url.setVisibility(View.VISIBLE);
+//			save.setVisibility(View.VISIBLE);
+//		} else if (title.getVisibility() == View.VISIBLE) {
+//			title.setVisibility(View.INVISIBLE);
+//			name.setVisibility(View.INVISIBLE);
+//			url.setVisibility(View.INVISIBLE);
+//			save.setVisibility(View.INVISIBLE);
+//		}
+//	}
 	
 	@Override
 	protected void onPause() {
@@ -210,6 +260,9 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 			} else if (((Button)v).equals((Button)findViewById(R.id.djftw))) {
 				djftwClick(v);
 			}
+//			else if (((Button)v).equals((Button)findViewById(R.id.show_add))) {
+//				togAddURLControls(v);
+//			}
 		}
 	}
 
