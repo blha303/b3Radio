@@ -1091,8 +1091,9 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050044;
+        public static final int action_settings=0x7f050045;
         public static final int activity_chooser_view_content=0x7f050025;
+        public static final int already_playing=0x7f050044;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int checkbox=0x7f05002d;
@@ -1249,12 +1250,17 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a000f;
+        public static final int already_playing=0x7f0a0017;
         public static final int app_name=0x7f0a000d;
-        public static final int choon=0x7f0a0013;
+        public static final int choon=0x7f0a0014;
         public static final int default_url=0x7f0a0010;
-        public static final int djftw=0x7f0a0015;
+        public static final int djftw=0x7f0a0016;
         public static final int hive_button=0x7f0a0012;
-        public static final int poon=0x7f0a0014;
+        public static final int hive_button_hide=0x7f0a0013;
+        public static final int invalid_url=0x7f0a0019;
+        public static final int not_ready=0x7f0a0018;
+        public static final int not_yet_implemented=0x7f0a001a;
+        public static final int poon=0x7f0a0015;
         public static final int start_radio=0x7f0a000e;
         public static final int stop_radio=0x7f0a0011;
     }

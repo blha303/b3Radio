@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/start"
         android:layout_below="@+id/start"
-        android:onClick="makeVisible"
+        android:onClick="showH365Controls"
         android:text="@string/hive_button" />
 
     <Button
@@ -83,5 +83,15 @@
         android:layout_below="@+id/editText1"
         android:onClick="startClick"
         android:text="@string/start_radio" />
+
+    <TextView
+        android:id="@+id/already_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="58dp"
+        android:text="@string/already_playing"
+        android:visibility="invisible" />
 
 </RelativeLayout>

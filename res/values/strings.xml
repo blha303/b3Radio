@@ -7,8 +7,13 @@
     <string name="default_url">http://stream.hive365.co.uk:8088/live</string>
     <string name="stop_radio">Stop radio</string>
     <string name="hive_button">Show Hive365 controls</string>
+    <string name="hive_button_hide">Hide Hive365 controls</string>
     <string name="choon">Choon</string>
     <string name="poon">Poon</string>
     <string name="djftw">DJFTW</string>
+    <string name="already_playing">You need to stop the radio first.</string>
+    <string name="not_ready">The radio is starting, please wait.</string>
+    <string name="invalid_url">Couldn\'t start playing that URL</string>
+    <string name="not_yet_implemented">This function is not yet implemented.</string>
 
 </resources>
