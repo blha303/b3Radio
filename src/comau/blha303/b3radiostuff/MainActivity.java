@@ -131,7 +131,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 		edit.commit();
 	}
 	
-	public void startClick(final View v) {
+	public void startClick(View v) {
 		((Button)findViewById(R.id.start)).setEnabled(false);
 		starting = true;
 		TextView error = (TextView)findViewById(R.id.already_playing);
@@ -146,7 +146,8 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 					error.setVisibility(View.INVISIBLE);
 					player.start();
 					starting = false;
-					((Button)v).setEnabled(true);
+					((Button)findViewById(R.id.start)).setEnabled(true);
+					((Button)findViewById(R.id.stop)).setEnabled(true);
 				}
 			});
 			player.prepareAsync();
@@ -165,6 +166,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener  
 			error.setText(R.string.invalid_url);
 			error.setVisibility(View.VISIBLE);
 		}
+		restart = false;
 	}
 	
 	public void stopClick(View v) {
